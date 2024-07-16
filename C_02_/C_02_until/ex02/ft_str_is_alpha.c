@@ -1,50 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 18:47:28 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/16 13:13:01 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/16 16:37:18 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/16 16:49:29 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	print(int nb, int sign);
-
-void	ft_putnbr(int nb)
+int	ft_str_is_alpha(char *str)
 {
-	int	sign;
-
-	sign = 0;
-	if (nb == -2147483648)
+	int	not_alpha;
+	char	first;
+	
+	first = *str;
+	not_alpha = 0;
+	while (*str)
 	{
-		ft_putnbr(-214748364);
-		nb = 8;
+		if (!(((*str >= 65) && (*str <= 90)) || ((*str >= 97) && (*str <= 122))))
+			not_alpha++;
+		str++;
 	}
-	if (nb < 0)
-	{
-		sign = -1;
-		nb *= -1;
-	}
-
-	print(nb, sign);
+	if ((not_alpha == 0) && (str))
+		return (1);
+	return (0);
 }
 
-void	print(int nb, int sign)
-{
-	int	c;
-
-	if (nb == 0)
-	{
-		if (sign == -1)
-			write(1, "-", 1);
-		return ;
-	}
-	c = nb % 10;
-	nb = nb / 10;
-	print(nb, sign);
-	c += 48;
-	write(1, &c, 1);
-}

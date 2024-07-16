@@ -1,50 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 18:47:28 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/16 13:13:01 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/16 13:45:06 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/16 14:20:15 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	print(int nb, int sign);
-
-void	ft_putnbr(int nb)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int	sign;
+	char	*ret;
 
-	sign = 0;
-	if (nb == -2147483648)
+	ret = dest;
+	while (*src)
 	{
-		ft_putnbr(-214748364);
-		nb = 8;
+		*dest = *src;
+		src++;
+		dest++;
 	}
-	if (nb < 0)
-	{
-		sign = -1;
-		nb *= -1;
-	}
-
-	print(nb, sign);
-}
-
-void	print(int nb, int sign)
-{
-	int	c;
-
-	if (nb == 0)
-	{
-		if (sign == -1)
-			write(1, "-", 1);
-		return ;
-	}
-	c = nb % 10;
-	nb = nb / 10;
-	print(nb, sign);
-	c += 48;
-	write(1, &c, 1);
+	*dest = *src;
+	return (ret);
 }

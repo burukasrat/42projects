@@ -1,50 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 18:47:28 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/16 13:13:01 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/16 14:34:40 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/16 14:52:35 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
-void	print(int nb, int sign);
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
-void	ft_putnbr(int nb)
+int	main(void)
 {
-	int	sign;
+	char str1[] = "abcdefg";
+	char	dest[6];
+	int	n = 12;
+	char	*str2;
+	char	print[] = "we about to die, no null-terminator";
 
-	sign = 0;
-	if (nb == -2147483648)
-	{
-		ft_putnbr(-214748364);
-		nb = 8;
+	str2 = ft_strncpy(&dest[0], &str1[0], n);
+	while(n)
+	{	if(*str2)
+			write(1, str2, 1);
+		else
+		{
+			write(1, &print, 35);
+			write(1, "\n", 1);
+		}
+		str2++;
+		n--;
 	}
-	if (nb < 0)
-	{
-		sign = -1;
-		nb *= -1;
-	}
-
-	print(nb, sign);
-}
-
-void	print(int nb, int sign)
-{
-	int	c;
-
-	if (nb == 0)
-	{
-		if (sign == -1)
-			write(1, "-", 1);
-		return ;
-	}
-	c = nb % 10;
-	nb = nb / 10;
-	print(nb, sign);
-	c += 48;
-	write(1, &c, 1);
+	return (0);
 }
