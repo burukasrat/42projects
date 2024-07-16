@@ -22,17 +22,22 @@ int	main(void)
 void	ft_print_combn(int n)
 {
 	int	c;
-	int	d;
+	int	max;
 	int	count;
 	int	e;
 	
-	if (n == 0)
-		return ;
-	c = 48;
-	while (c < 58)
+	max = 1;
+	while (n)
 	{
-		write(1, &c, 1);
-		ft_print_combn(n - 1);
+		max *= 10;
+		n--;
+	}
+	
+	c = 0;
+	while (c < max)
+	{
+		if (check(c))
+			ft_putnbr(c)
 		if (n == 1)
 			write(1, ", ", 2);
 		c++;
