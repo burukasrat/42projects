@@ -29,12 +29,16 @@ void	print(char *str)
 
 int	main(void)
 {
-	char	*str;
-
-	str = "abcdCD123, haah";
-	print(str);
+	char	str[] = "abcdCD123, haah";
+	char	*st;
+	
+	write(1, &str, 15);
 	write(1, "\n", 1);
-	str = ft_strupcase(str);
-	print(str);
+	st = ft_strupcase(str);
+	while (*st)
+	{
+		write(1, st, 1);
+		st++;
+	}
 	return (0);
 }

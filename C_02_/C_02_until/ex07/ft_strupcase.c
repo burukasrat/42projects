@@ -15,12 +15,11 @@ char	*ft_strupcase(char *str)
 	char	*st;
 
 	st = str;
-	while (*str)
+	while (*st != '\0')
 	{
-		if ((*str >= 65) && (*str < 91))
-			*str += 32;
-		str++;
+		if ((*st >= 97) && (*st < 123))
+			*st -= 32;
+		st++;
 	}
-	str = st;
 	return (str);
 }
