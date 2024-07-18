@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 18:47:28 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/14 16:41:17 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/18 15:17:23 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/18 15:28:24 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	ft_putnbr(int nb)
+int	ft_strlen(char *str)
 {
-	int	c;
+	int	len;
 
-	if (nb == 0)
-		return ;
-	c = nb % 10;
-	nb = nb / 10;
-	ft_putnbr(nb);
-	c += 48;
-	write(1, &c, 1);
+	len = 0;
+	while (*str)
+	{
+		len++;
+		str++;
+	}
+	return (len);
+}
+
+char	*ft_strcat(char *dest, char *src)
+{
+	int	len_dest;
+	char	*st;
+	
+	st = dest;
+	len_dest = ft_strlen(dest);
+	dest += len_dest;
+	while (*src)
+	{
+		*dest = *src;
+		src++;
+		dest++;
+	}
+	*dest = *src;
+	return (st);
 }

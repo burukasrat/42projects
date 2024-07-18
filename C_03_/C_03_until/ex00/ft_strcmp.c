@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/10 17:24:58 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/14 15:10:35 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/18 14:30:45 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/18 15:15:42 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	ft_print_alphabet(void)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	c;
-
-	c = 97;
-	while (c < 123)
+	while (*s1)
 	{
-		write (1, &c, 1);
-		c = c + 1;
+		if (*s1 < *s2)
+			return (-1);
+		else if (*s1 > *s2)
+			return (1);
+		s1++;
+		s2++;
 	}
+	if (*s1 == *s2)
+		return (0);
+	else if ((*s1 == '\0') && (*s2 != '\0'))
+		return (-1);
+	else
+		return (1);
 }
