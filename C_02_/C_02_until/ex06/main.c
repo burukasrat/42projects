@@ -6,7 +6,7 @@
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:26:47 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/17 12:08:08 by btsegaye         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:53:10 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(void)
 	str = " 23 ";
 	ret = ft_str_is_printable(str);
 	putnbr(ret);
-	str = "";
+	str = "\0";
 	ret = ft_str_is_printable(str);
 	putnbr(ret);
 	ret = 32;

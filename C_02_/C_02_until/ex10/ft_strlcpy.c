@@ -1,4 +1,16 @@
-unsigned int 	strlen(char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/18 14:13:47 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/18 15:32:26 by btsegaye         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+unsigned int	ft_strlen(char *str)
 {
 	unsigned int	len;
 
@@ -11,13 +23,13 @@ unsigned int 	strlen(char *str)
 	return (len);
 }
 
-unsigned int	ft_stlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
+	int		len;
 	char	*st;
-	unsigned int	len;
 
 	st = src;
-	len = strlen(st);
+	len = ft_strlen(st);
 	while (size - 1)
 	{
 		*dest = *src;

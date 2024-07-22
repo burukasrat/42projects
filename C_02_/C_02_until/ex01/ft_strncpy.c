@@ -6,16 +6,16 @@
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:27:13 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/16 14:34:28 by btsegaye         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:48:36 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	char	*ret;
-	
+
 	ret = dest;
-	while(n)
+	while (n)
 	{
 		if (*src)
 			*dest = *src;
@@ -26,4 +26,4 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		n--;
 	}
 	return (ret);
-}	
+}

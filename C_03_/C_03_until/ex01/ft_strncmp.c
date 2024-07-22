@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 09:20:33 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/14 15:09:03 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/18 15:00:31 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/18 15:04:25 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	ft_putchar(char c)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	write(1, &c, 1);
+	while (n)
+	{
+		if (*s1 > *s2)
+			return (1);
+		else if (*s1 < *s2)
+			return (-1);
+		s1++;
+		s2++;
+		n--;
+	}
+	return (0);
 }
