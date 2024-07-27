@@ -2,18 +2,17 @@
 
 int	*ft_range(int min, int max)
 {
-	int	*array;
+	int	array[max - min];
 	int	range;
 
 	if (min == max)
 		return (array);
-	range = max - min;
-	array = (int*)malloc(range * 4);
-	while (min < max)
+	range = min;
+	//array = (int*)malloc((max - min) * 4);
+	while (range < max)
 	{
-		*array = min;
-		min++;
-		array++;
+		array[range - min] = min;
+		range++;
 	}
-	return (array - range - 1);
+	return (&array[0]);
 }
