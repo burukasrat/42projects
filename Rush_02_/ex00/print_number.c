@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   print_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 14:27:13 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/24 12:00:07 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/27 19:30:07 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/27 19:45:30 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
-{
-	char	*ret;
+#include "rush02.h"
 
-	ret = dest;
-	while (n - 1)
+void	get_number(char *number, t_dict *dict)
+{
+	t_dict	*temp;
+
+	temp = dict;
+	while (temp->next != NULL)
 	{
-		if (*src)
-			*dest = *src;
-		src++;
-		dest++;
-		n--;
+		if (ft_strcmp(temp->number, number) == 0)
+		{
+			ft_putstr(temp->word);
+			return ;
+		}
+		temp = temp->next;
 	}
-	*dest = '\0';
-	return (ret);
-}
+}		

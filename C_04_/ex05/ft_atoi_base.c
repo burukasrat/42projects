@@ -1,16 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/24 13:02:17 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/24 13:26:23 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/24 12:59:42 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/24 13:58:37 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+int	is_base(char c, char *base)
+{
+	while (*base)
+	{
+		if (*base == c)
+			return (1);
+		base++;
+	}
+	return (0);
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int	digit;
+	int	nbr;
+	int	inter;
+	int	sign;
+
+	sign = 0;
+	nbr = 0;
+	digit = 0;
+	len = validate_base(base);
+	if (len <= 1)
+		return (0);
+	while (*str || *str == '-' || *str == '+' || *str == ' ' || is_base(*str, base))
+	{
+		if (is_base(*str, base))
+		{
+			digit++;
+			inter = *str;
+			inter -= 48;
+			nbr = nbr * 10 + inter;
+		}
+		else if ((digit != 0) && (is_base(*str, base) == 0))
+			break ;
+		else if (*str == '-')
+			sign++;
+		str++;
+	}
+	if (sign % 2 == 1)
+		nbr *= -1;
+	return (nbr);
+}
 
 int	validate_base(char *base)
 {
@@ -23,7 +65,7 @@ int	validate_base(char *base)
 	{
 		same = 0;
 		x = 0;
-		if (base[len] == '+' || base[len] == '-')
+		if (base[len] == '+' || base[len] == '-' || base[len] == ' ')
 			return (0);
 		while (base[x] != '\0')
 		{
@@ -38,7 +80,7 @@ int	validate_base(char *base)
 	return (len);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int	ft_putnbr_base(int nbr, char *base)
 {
 	int	len;
 	int	rem;
@@ -50,15 +92,4 @@ void	ft_putnbr_base(int nbr, char *base)
 	nbr /= len;
 	ft_putnbr_base(nbr, base);
 	write(1, &(base[rem]), 1);
-}
-
-int	main(void)
-{
-	int	nbr;
-	char	*base;
-
-	base = "0123456789ABCDEF";
-	nbr = 35;
-	ft_putnbr_base(nbr, base);
-	return (0);
 }

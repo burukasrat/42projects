@@ -6,7 +6,7 @@
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 18:47:28 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/16 13:13:01 by btsegaye         ###   ########.fr       */
+/*   Updated: 2024/07/24 14:06:59 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -28,6 +28,8 @@ void	ft_putnbr(int nb)
 		sign = -1;
 		nb *= -1;
 	}
+	if (nb == 0)
+		write(1, "0", 1);
 
 	print(nb, sign);
 }
