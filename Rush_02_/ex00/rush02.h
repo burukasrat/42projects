@@ -37,6 +37,10 @@ void	*ft_mem_cpy(void *dest, void *src, size_t n);
 int	ft_input_len(char *str);
 void	ft_get_value(char *dest, char *str);
 char	*ft_validate_input(char *str);
-void	get_number(char *number, t_dict *dict);
+int	get_number(char *number, t_dict *dict, int space);
 int	ft_strcmp(char *s1, char *s2);
+void	print_number(char *number, t_dict *dict, int space);
+char	*tens(int n);
+void	print_more(char *number, t_dict *dict);
+
 #endif

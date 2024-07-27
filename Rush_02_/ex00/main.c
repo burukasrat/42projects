@@ -25,6 +25,6 @@ int	main(int argc, char **argv)
 	}
 	input = ft_validate_input(argv[1]);
 	parse_dictionary("numbers.dict", list);
-	get_number(input, list);
+	print_number(input, list, 0);
 	return (0);
 }
