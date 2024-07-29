@@ -6,7 +6,7 @@
 /*   By: jyriarte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 10:32:22 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/07/27 19:43:52 by btsegaye         ###   ########.fr       */
+/*   Updated: 2024/07/28 09:49:38 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int	get_number(char *number, t_dict *dict, int space);
 int	ft_strcmp(char *s1, char *s2);
 void	print_number(char *number, t_dict *dict, int space);
 char	*tens(int n);
-void	print_more(char *number, t_dict *dict);
+void	print_more(char *number, t_dict *dict, int space);
 
 #endif

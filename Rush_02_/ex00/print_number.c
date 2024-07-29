@@ -6,7 +6,7 @@
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 19:30:07 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/27 19:45:30 by btsegaye         ###   ########.fr       */
+/*   Updated: 2024/07/28 09:53:41 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	get_number(char *number, t_dict *dict, int space)
 	return (0);
 }
 
+/*
 void	print_number(char *number, t_dict *dict, int space)
 {
 	int	len;
 	char	*half;
-	int	s;
 
 	half = ft_strdup(number);
 	len = ft_str_len(number);
@@ -53,13 +53,9 @@ void	print_number(char *number, t_dict *dict, int space)
 		get_number(half, dict, 1);
 		half = "100";
 		get_number(half, dict, 1);
-		print_number(&number[1], dict, space);
 	}
-	else
-	{
-		print_more(number, dict);
-	}	
 }
+*/
 
 char	*tens(int n)
 {
@@ -74,7 +70,8 @@ char	*tens(int n)
 	num[i] = '\0';
 	return (num);
 }
-void	print_more(char *number, t_dict *dict)
+
+void	print_more(char *number, t_dict *dict, int space)
 {
 	char	*half;
 	int	len;
@@ -82,31 +79,16 @@ void	print_more(char *number, t_dict *dict)
 
 	len = ft_str_len(number);
 	half = ft_strdup(number);
+	if (get_number(number, dict, space))
+		return ;
 	cut = len % 3;
 	if (cut == 0)
-	{
-		half[3] = '\0';
-		print_number(half, dict, 1);
-		get_number(tens(len - 2), dict, 1);
-		print_number(&number[3], dict, 0);
-	}
-	else if (cut == 2)
-	{
-		half[2] = '\0';
-		print_number(half, dict, 1);
-		get_number(tens(len - 1), dict, 1);
-		print_number(&number[2], dict, 0);
-	}
-	else
-	{
-		half[1] = '\0';
-		print_number(half, dict, 1);
-		get_number(tens(len), dict, 1);
-		print_number(&number[1], dict, 0);
-	}
+		cut = 3;
+	half[cut] = '\0';
+	print_more(half, dict, 1);
+	get_number(tens(len - cut - 1), dict, 1);
+	print_more(&number[cut], dict, 0);
 }
-
-
 
 
 

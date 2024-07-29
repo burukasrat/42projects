@@ -3,28 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jyriarte <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 11:31:44 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/07/28 09:55:09 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/29 16:58:01 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/29 17:43:04 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush02.h"
+#include <stdio.h>
 
-int	main(int argc, char **argv)
+int	ft_atoi_base(char *str, char *base);
+
+int	main(void)
 {
-	char		*input;
-	t_dict		*list;
+	char	*base;
+	char	*str;
+	int	number;
 
-	list = (t_dict *)malloc(sizeof(t_dict));
-	if (argc < 2 || argc > 3)
-	{
-		ft_putstr("Error\n");
-		return (1);
-	}
-	input = ft_validate_input(argv[1]);
-	parse_dictionary("numbers.dict", list);
-	print_more(input, list, 0);
+	base = "01";
+	str = "-101";
+	number = ft_atoi_base(str, base);
+	printf("%d", number);
 	return (0);
 }

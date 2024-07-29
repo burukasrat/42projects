@@ -3,28 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jyriarte <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 11:31:44 by jyriarte          #+#    #+#             */
-/*   Updated: 2024/07/28 09:55:09 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/29 15:43:28 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/29 16:05:02 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-#include "rush02.h"
+void	ft_putnbr_base(int nbr, char *base);
 
-int	main(int argc, char **argv)
+int     main(void)
 {
-	char		*input;
-	t_dict		*list;
+        int     nbr;
+        char    *base;
 
-	list = (t_dict *)malloc(sizeof(t_dict));
-	if (argc < 2 || argc > 3)
-	{
-		ft_putstr("Error\n");
-		return (1);
-	}
-	input = ft_validate_input(argv[1]);
-	parse_dictionary("numbers.dict", list);
-	print_more(input, list, 0);
-	return (0);
+        base = "0123456789ABCDEF";
+        nbr = -35;
+	printf("%d", nbr / 10);
+        //ft_putnbr_base(nbr, base);
+        return (0);
 }
+
