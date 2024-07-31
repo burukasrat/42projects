@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 18:24:03 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/30 10:17:48 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/18 14:30:45 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/29 14:50:30 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	x;
-
-	if (nb < 0)
+	while (*s1)
+	{
+		if (*s1 < *s2)
+			return (*s1 - *s2);
+		else if (*s1 > *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+	}
+	if (*s1 == *s2)
 		return (0);
-	if (nb == 1)
-		return (1);
-	x = nb / 2;
-	while (x * x > nb && x * x != nb && x != 0)
-		x = (x + nb / x) / 2;
-	if (x * x == nb)
-		return (x);
-	return (0);
+	else if ((*s1 == '\0') && (*s2 != '\0'))
+		return (*s1 - *s2);
+	else
+		return (*s1 - *s2);
 }

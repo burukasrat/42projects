@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/30 10:31:51 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/30 10:42:37 by btsegaye         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 int	ft_strcmp(char *s1, char *s2)
@@ -17,6 +29,7 @@ int	ft_strcmp(char *s1, char *s2)
 		return (1);
 	return (-1);
 }
+
 void	ft_putstr(char *str)
 {
 	while (*str)
@@ -26,22 +39,19 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	main(int argc, char *argv[])
+void	ft_sort(int argc, char **argv)
 {
-	int	arr[argc];
-	int	x;
-	int	y;
 	char	*inter;
+	int		x;
+	int		y;
 
 	x = 1;
-	y = 1;
-
 	while (x < argc)
 	{
 		y = 1;
 		while (y < argc - 1)
 		{
-			if (ft_strcmp(argv[y],argv[y + 1]) == 1)
+			if (ft_strcmp(argv[y], argv[y + 1]) == 1)
 			{
 				inter = argv[y];
 				argv[y] = argv[y + 1];
@@ -51,7 +61,13 @@ int	main(int argc, char *argv[])
 		}
 		x++;
 	}
-	
+}
+
+int	main(int argc, char *argv[])
+{
+	int		x;
+
+	ft_sort(argc, argv);
 	x = 1;
 	while (x < argc)
 	{

@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 18:24:03 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/30 10:17:48 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/30 11:17:48 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/30 11:50:54 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	x;
+#include <stdio.h>
 
-	if (nb < 0)
-		return (0);
-	if (nb == 1)
-		return (1);
-	x = nb / 2;
-	while (x * x > nb && x * x != nb && x != 0)
-		x = (x + nb / x) / 2;
-	if (x * x == nb)
-		return (x);
+int	*ft_range(int min, int max);
+
+int	main(void)
+{
+	int	*ptr;
+	int	i;
+	int	max;
+	int	min;
+
+	min = 5;
+	max = 10;
+	ptr = ft_range(min, max);
+	i = 0;
+	while (i < max - min)
+		printf("%d ", ptr[i++]);
 	return (0);
 }

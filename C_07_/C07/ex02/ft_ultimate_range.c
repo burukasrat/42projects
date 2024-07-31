@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 18:24:03 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/30 10:17:48 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/30 12:00:29 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/30 15:38:20 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	x;
+#include <stdlib.h>
 
-	if (nb < 0)
+int	ft_ultimate_range(int **range, int min, int max)
+{
+	int	len;
+
+	if (min >= max)
+	{
+		*range = NULL;
 		return (0);
-	if (nb == 1)
-		return (1);
-	x = nb / 2;
-	while (x * x > nb && x * x != nb && x != 0)
-		x = (x + nb / x) / 2;
-	if (x * x == nb)
-		return (x);
-	return (0);
+	}
+	len = min;
+	*range = (int *) malloc ((max - min) * 4);
+	if (!*range)
+		return (-1);
+	while (len < max)
+	{
+		(*range)[len - min] = len;
+		len++;
+	}
+	return (max - min);
 }

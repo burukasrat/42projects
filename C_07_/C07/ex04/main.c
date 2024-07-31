@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 18:24:03 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/30 10:17:48 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/31 16:10:04 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/31 16:29:18 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	x;
+#include <stdio.h>
 
-	if (nb < 0)
-		return (0);
-	if (nb == 1)
-		return (1);
-	x = nb / 2;
-	while (x * x > nb && x * x != nb && x != 0)
-		x = (x + nb / x) / 2;
-	if (x * x == nb)
-		return (x);
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
+
+int	main(void)
+{
+	char	*base_from;
+	char	*base_to;
+	char	*nbr;
+	char	*ret;
+
+	base_from = "0123456789ABCDEF";
+	base_to = "012345";
+	nbr = "AA";
+	ret = ft_convert_base(nbr, base_from, base_to);
+	printf("\nfinal: %s", ret);
 	return (0);
 }

@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 18:24:03 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/30 10:17:48 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/30 12:37:00 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/30 15:28:57 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	x;
+#include <stdio.h>
+#include <stdlib.h>
 
-	if (nb < 0)
-		return (0);
-	if (nb == 1)
-		return (1);
-	x = nb / 2;
-	while (x * x > nb && x * x != nb && x != 0)
-		x = (x + nb / x) / 2;
-	if (x * x == nb)
-		return (x);
+char	*ft_strjoin(int size, char **strs, char *sep);
+
+int	main(void)
+{
+	char	**strs;
+	int	size;
+	char	*sep;
+
+	sep = "/-/";
+	size = 5;
+	strs = (char **) malloc (size);
+	strs[0] = (char *) malloc (5);
+	strs[0] = "hello";
+	strs[1] = "amazing";
+	strs[2] = "great";
+	strs[3] = "confindent";
+	strs[4] = "somehting";
+	printf("%s\n", ft_strjoin(size, strs, sep));
+	free(strs);
 	return (0);
-}
+}	

@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 18:24:03 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/30 10:17:48 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/30 10:54:33 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/30 11:12:34 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	x;
+#include <stdlib.h>
 
-	if (nb < 0)
-		return (0);
-	if (nb == 1)
-		return (1);
-	x = nb / 2;
-	while (x * x > nb && x * x != nb && x != 0)
-		x = (x + nb / x) / 2;
-	if (x * x == nb)
-		return (x);
-	return (0);
+int	ft_strlen(char *str)
+{
+	int	len;
+
+	len = 0;
+	while (str[len] != 0)
+		len++;
+	return (len);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*ptr;
+	int	len;
+	int	i;
+
+	len = ft_strlen(src);
+	ptr = (char *) malloc (len + 1);
+	i = 0;
+	while (src[i] != 0)
+	{
+		ptr[i] = src[i];
+		i++;
+	}
+	ptr[i] = 0;
+	return (ptr);
 }

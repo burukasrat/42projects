@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 18:24:03 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/30 10:17:48 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/30 14:32:16 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/30 15:04:32 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	x;
+#include <stdlib.h>
+#include "ft_stock_str.h"
 
-	if (nb < 0)
-		return (0);
-	if (nb == 1)
-		return (1);
-	x = nb / 2;
-	while (x * x > nb && x * x != nb && x != 0)
-		x = (x + nb / x) / 2;
-	if (x * x == nb)
-		return (x);
-	return (0);
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
+
+void	ft_show_tab(struct s_stock_str *par);
+
+int	main(void)
+{
+	char	**av;
+	struct s_stock_str		*tabs;
+
+	av = (char **) malloc (3);
+	av[0] = "hi";
+	av[1] = "hell0";
+	av[2] = "greetings";
+	
+	tabs = ft_strs_to_tab(3, av);
+	ft_show_tab(tabs);
+	return(0);
 }

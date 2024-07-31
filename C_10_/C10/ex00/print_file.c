@@ -1,27 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   print_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btsegaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 18:24:03 by btsegaye          #+#    #+#             */
-/*   Updated: 2024/07/30 10:17:48 by btsegaye         ###   ########.fr       */
+/*   Created: 2024/07/31 17:21:05 by btsegaye          #+#    #+#             */
+/*   Updated: 2024/07/31 18:35:34 by btsegaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int	x;
+#include <unistd.h>
 
-	if (nb < 0)
-		return (0);
-	if (nb == 1)
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
+}
+
+void	ft_read(int file)
+{
+
+int	main(int argc, char **argv)
+{
+	int	file;
+
+	if (argc < 2)
+	{
+		ft_putstr("File name missing.\n");
 		return (1);
-	x = nb / 2;
-	while (x * x > nb && x * x != nb && x != 0)
-		x = (x + nb / x) / 2;
-	if (x * x == nb)
-		return (x);
+	}
+	else if (argc > 2)
+	{
+		ft_putstr("Too many arguments.\n");
+		return (1);
+	}
+	file = open(argv[1], O_RDONLY);
+	if (!file)
+	{
+		ft_putstr("Cannot read file.\n");
+		return (1);
+	}
+	ft_read(file);
 	return (0);
 }
